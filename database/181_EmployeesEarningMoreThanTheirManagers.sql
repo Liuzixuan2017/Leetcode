@@ -30,4 +30,22 @@ insert into Employee1 values (3, 'Sam', 60000, null);
 insert into Employee1 values (4, 'Max', 90000, null);
 
 select a.Name  from Employee1 a join Employee1  b on b.Id = a.ManagerId where a.Salary > b.Salary;
+/*
+	ID NAME 		    SALARY  MANAGERID	      ID NAME			  SALARY  MANAGERID
+---------- -------------------- ---------- ---------- ---------- -------------------- ---------- ----------
+	 1 joe			     70000	    3	       3 Sam			   60000
+	 2 Henry		     80000	    4	       4 Max			   90000
+*/
+
+
+
+
+
 --select a.Name from Employee1 a join Employee1  b on a.Id = b.ManagerId where a.Salary > b.Salary;
+
+/*
+	ID NAME 		    SALARY  MANAGERID	      ID NAME			  SALARY  MANAGERID
+---------- -------------------- ---------- ---------- ---------- -------------------- ---------- ----------
+	 3 Sam			     60000		       1 joe			   70000	  3
+	 4 Max			     90000		       2 Henry			   80000	  4
+*/
