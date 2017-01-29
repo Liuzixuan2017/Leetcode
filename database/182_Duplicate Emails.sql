@@ -16,4 +16,12 @@ For example, your query should return the following for the above table:
 +---------+
 Note: All emails are in lowercase.*/
 
+--approach 1
 Select email from Person group by email where count(email) > 1;
+--approach 2
+Select distinct a.email from Person a left join Person b on a.email = b.email where a.Id != b.Id;
+--approach 3
+SELECT DISTINCT a.Email FROM Person a
+LEFT JOIN (SELECT Id, Email from Person GROUP BY Email) b
+ON (a.email = b.email) AND (a.Id = b.Id)
+WHERE b.Email IS NUL
